@@ -23,16 +23,6 @@ module.exports = function(grunt) {
         grunt.config.set('release.options.tag', true);
     });
 
-    grunt.registerTask('release-config-bumponly', function() {
-        grunt.config.set('release.options.add', false);
-        grunt.config.set('release.options.bump', true);
-        grunt.config.set('release.options.commit', false);
-        grunt.config.set('release.options.npm', false);
-        grunt.config.set('release.options.push', false);
-        grunt.config.set('release.options.pushTags', false);
-        grunt.config.set('release.options.tag', false);
-    });
-
     grunt.registerTask('release-version', function(type) {
         type = type || 'prerelease';
 
@@ -49,17 +39,9 @@ module.exports = function(grunt) {
             grunt.task.run('release-config-commit');
             grunt.task.run('release:prerelease');
         } else {
-            // If doing a major/minor/patch version update, we don't
-            // push the non-prerelease version to NPM. Also, the first
-            // pre-release version is -0 which NPM doesn't like, so we
-            // bump it twice while only committing the second (i.e., `-1`)
-            grunt.task.run('release-config-bumponly');
-            grunt.task.run(util.format('release:%s', type));
-            grunt.task.run('release:prerelease');
-
-            // Then increment the prerelease and push that one to NPM
             grunt.task.run('release-config-commit');
-            grunt.task.run('release:prerelease');
+            grunt.task.run(util.format('release:%s', type));
+
         }
     });
 };
