@@ -18,4 +18,4 @@ To do that, we use the [grunt-release](https://github.com/geddski/grunt-release)
 
 Therefore if you are on version `4.4.0-3` and you need to upgrade the module for a `5.0.0` release of Hilary, you run the following:
 
-`grunt release-version:major`, and that will release and publish version `5.0.0-1` of this module to NPM.
+`sh release.sh`, enter your GitHub username and password, enter the release type as `major`, and that will release and publish version `5.0.0` of this module to NPM.
