@@ -30,6 +30,6 @@
     "grunt-release": "latest"
   },
   "engines": {
-    "node": "6.11.1"
+    "node": ">=6.11.1"
   }
 }
