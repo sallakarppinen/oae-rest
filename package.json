@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/oaeproject/oae-rest.git"
+    "url": "https://github.com/oaeproject/oae-rest.git"
   },
   "bugs": {
     "url": "https://github.com/oaeproject/oae-rest/issues"
